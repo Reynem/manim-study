@@ -4,3 +4,6 @@ start:
 
 prism:
 	manim -pqm main.py MyPrism
+
+fast:
+	manim -pql main.py

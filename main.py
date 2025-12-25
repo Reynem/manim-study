@@ -86,6 +86,28 @@ class MyPrism(ThreeDScene):
 
 class RectangularVolume(ThreeDScene):
     def construct(self):
-        self.set_camera_orientation(theta=135*DEGREES, phi=60*DEGREES, gamma=0*DEGREES, zoom=0.5)
+        self.set_camera_orientation(zoom=0.3)
 
+        self.wait(1)
         
+        rectangle = Rectangle(color=RED_E, width=8, height=5)
+
+        header = Text(text="Welcome to my video!")
+
+        self.play(Create(rectangle), Create(header))
+
+        self.wait(1)
+
+        cube = Cube(side_length=1)
+        self.play(FadeIn(cube), FadeOut(rectangle), header.animate.shift(UP))
+        self.remove(rectangle)
+
+        new_text = (Text("I fucked ur mom btw"))
+
+        self.play(
+            ReplacementTransform(header, new_text),
+            cube.animate.rotate(40 * DEGREES, axis=Y_AXIS).shift(DOWN)
+            )
+        header = new_text
+
+        self.wait(1)
