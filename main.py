@@ -111,3 +111,23 @@ class RectangularVolume(ThreeDScene):
         header = new_text
 
         self.wait(1)
+
+class AbsoluteFreaky(Scene):
+    def construct(self):
+        imageObject = ImageMobject("assets\img\proxy-image.jpg")
+        
+        self.add(imageObject)
+
+        self.wait(1)
+        
+        self.play(
+            imageObject.animate.shift(DOWN).stretch_to_fit_width(4)
+        )
+
+        self.wait(0.5)
+
+        self.play(
+            imageObject.animate.rotate(120 * DEGREES).shift(UP * 2 + RIGHT)
+        )
+
+        self.wait(0.5)
